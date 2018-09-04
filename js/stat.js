@@ -25,7 +25,7 @@ var renderCloud = function(ctx, x, y, color){
 var getMaxTime = function(arr){
   var maxElem = arr[0];
   for (var i = 0; i < arr.length; i++) {
-    if(maxElem < arr[i]){
+    if (maxElem < arr[i]) {
       maxElem = arr[i];
     }
   }
