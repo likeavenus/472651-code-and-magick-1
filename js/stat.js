@@ -16,22 +16,22 @@ var COL_Y = 80;
 var FONT_GAP = 40;
 
 var TIME_MARGIN = 15;
-var TIME_Y = HEIGHT_COL - TIME_MARGIN;
+var TIME_Y = HEIGHT_COL - TIME_MARGIN - GAP * 2;
 
-var renderCloud = function(ctx, x, y, color) {
+var renderCloud = function(ctx, x, y, color){
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
-var getMaxTime = function(arr) {
+var getMaxTime = function(arr){
   var maxElem = arr[0];
   for (var i = 0; i < arr.length; i++) {
-    if(maxElem < arr[i]) {
+    if(maxElem < arr[i]){
       maxElem = arr[i];
     }
   }
   return maxElem;
 };
-var renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function(ctx, names, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, '#rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
   ctx.fillStyle = '#000';
