@@ -1,18 +1,15 @@
+'use strict'
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 
-var NAME_X = 100;
 var NAME_Y = 250;
 
 var GAP = 10;
 
-// var barWidth = CLOUD_WIDTH - GAP - TEXT_WIDTH - GAP;
-
 var MARGIN = 50;
 var WIDTH_COL = 40;
-var TEXT_HEIGHT = 160;
 var HEIGHT_COL = 150;
 var COL_Y = 80;
 
@@ -25,7 +22,6 @@ var renderCloud = function(ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
-
 var getMaxTime = function(arr) {
   var maxElem = arr[0];
   for (var i = 0; i < arr.length; i++) {
@@ -34,8 +30,7 @@ var getMaxTime = function(arr) {
     }
   }
   return maxElem;
-}
-
+};
 var renderStatistics = function(ctx, names, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, '#rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
