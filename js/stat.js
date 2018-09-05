@@ -4,19 +4,20 @@ var CLOUD_Y = 10;
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 
-var NAME_Y = 250;
+var NAME_Y = 260;
 
 var GAP = 10;
 
 var MARGIN = 50;
 var WIDTH_COL = 40;
 var HEIGHT_COL = 150;
-var COL_Y = 80;
+var COL_MARGIN = HEIGHT_COL
+var COL_Y = 90;
 
 var FONT_GAP = 40;
 
 var TIME_MARGIN = 15;
-var TIME_Y = HEIGHT_COL - TIME_MARGIN - GAP * 2;
+var TIME_Y = HEIGHT_COL - TIME_MARGIN - GAP * 5;
 
 var renderCloud = function(ctx, x, y, color){
   ctx.fillStyle = color;
@@ -30,6 +31,10 @@ var getMaxTime = function(arr){
     }
   }
   return maxElem;
+};
+var getRandomOpacity = function(){
+  var colorOpacity = Math.random();
+  return colorOpacity;
 };
 window.renderStatistics = function(ctx, names, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, '#rgba(0, 0, 0, 0.7)');
@@ -53,7 +58,7 @@ window.renderStatistics = function(ctx, names, times) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle = 'rgba(0, 0, 255, 1)';
+      ctx.fillStyle = 'rgba(0, 0, 255,' + getRandomOpacity() + ')';
     }
     ctx.fillRect(CLOUD_X + GAP + FONT_GAP + (MARGIN + WIDTH_COL) * i, COL_Y, WIDTH_COL, (HEIGHT_COL * times[i]) / maxTime);
   }
