@@ -11,7 +11,7 @@ var GAP = 10;
 var MARGIN = 50;
 var WIDTH_COL = 40;
 var HEIGHT_COL = 150;
-var COL_MARGIN = HEIGHT_COL
+var COL_MARGIN = HEIGHT_COL;
 var COL_Y = 90;
 
 var FONT_GAP = 40;
@@ -19,11 +19,11 @@ var FONT_GAP = 40;
 var TIME_MARGIN = 15;
 var TIME_Y = HEIGHT_COL - TIME_MARGIN - GAP * 5;
 
-var renderCloud = function(ctx, x, y, color){
+var renderCloud = function(ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
-var getMaxTime = function(arr){
+var getMaxTime = function(arr) {
   var maxElem = arr[0];
   for (var i = 0; i < arr.length; i++) {
     if (maxElem < arr[i]) {
@@ -34,6 +34,9 @@ var getMaxTime = function(arr){
 };
 var getRandomOpacity = function(){
   var colorOpacity = Math.random();
+  if (colorOpacity == 0) {
+    colorOpacity == 1;
+  }
   return colorOpacity;
 };
 window.renderStatistics = function(ctx, names, times) {
@@ -51,7 +54,7 @@ window.renderStatistics = function(ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     ctx.fillStyle = '#000';
-    ctx.fillText(Math.floor(times[i]), CLOUD_X + GAP + FONT_GAP + (MARGIN + WIDTH_COL) * i, TIME_Y);
+    ctx.fillText(Math.floor(times[i]), CLOUD_X + GAP + FONT_GAP + (MARGIN + WIDTH_COL) * i, CLOUD_HEIGHT - (HEIGHT_COL * times[i]) / maxTime - GAP * 4);
 
     ctx.fillStyle = '#000';
     ctx.fillText(names[i], CLOUD_X + GAP + FONT_GAP + (MARGIN + WIDTH_COL) * i, NAME_Y);
@@ -60,6 +63,6 @@ window.renderStatistics = function(ctx, names, times) {
     } else {
       ctx.fillStyle = 'rgba(0, 0, 255,' + getRandomOpacity() + ')';
     }
-    ctx.fillRect(CLOUD_X + GAP + FONT_GAP + (MARGIN + WIDTH_COL) * i, COL_Y, WIDTH_COL, (HEIGHT_COL * times[i]) / maxTime);
+    ctx.fillRect(CLOUD_X + GAP + FONT_GAP + (MARGIN + WIDTH_COL) * i, CLOUD_HEIGHT - (HEIGHT_COL * times[i]) / maxTime - GAP * 3, WIDTH_COL, (HEIGHT_COL * times[i]) / maxTime);
   }
 };
