@@ -54,7 +54,7 @@ window.renderStatistics = function(ctx, names, times) {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = 'rgba(0, 0, 255, 1)';
-    };
+    }
     ctx.fillRect(CLOUD_X + GAP + FONT_GAP + (MARGIN + WIDTH_COL) * i, COL_Y, WIDTH_COL, (HEIGHT_COL * times[i]) / maxTime);
-  };
+  }
 };
