@@ -18,18 +18,10 @@ var WARLOCKS_NAMES = [
 ];
 
 function getRandomAttribute(min, max) {
-    var rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
-};
-//попытка создать функцию, которая создает магов , что бы оптимизировать код ниже(нужно ли?)[ФУНКЦИЯ НЕ ГОТОВА]
-// var createWarlocks = function(warlocks) {
-//   for (var i = 0; i < WARLOCKS_NAMES.length; i++) {
-//     warlocks = WARLOCKS_NAMES[i];
-//   }
-//   return warlocks;
-// };
-// createWarlocks(warlocks);
+  var rand = min + Math.random() * (max + 1 - min);
+  rand = Math.floor(rand);
+  return rand;
+}
 
 var warlocks = [
   {
@@ -73,23 +65,21 @@ var warlocks = [
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   }
 ];
-console.log(warlocks);
 
 var similarList = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
-for (var i = 0;i < 4; i++) {
-  var warlockElement = similarWizardTemplate.cloneNode(true);
-  warlockElement.querySelector('.setup-similar-label').textContent = warlocks[i].name;
-  warlockElement.querySelector('.wizard-coat').style.fill = warlocks[i].coatColor;
-   warlockElement.querySelector('.wizard-eyes').style.fill = warlocks[i].eyesColor;
-  similarList.appendChild(warlockElement);
+
+var renderWarlock = function(warlocks) {
+  for (var i = 0;i < 4; i++) {
+    var warlockElement = similarWizardTemplate.cloneNode(true);
+    warlockElement.querySelector('.setup-similar-label').textContent = warlocks[i].name;
+    warlockElement.querySelector('.wizard-coat').style.fill = warlocks[i].coatColor;
+    warlockElement.querySelector('.wizard-eyes').style.fill = warlocks[i].eyesColor;
+    similarList.appendChild(warlockElement);
+  }
 }
-
-// var createWarlock = document.createElement('div').classList.add('setup-similar-label');
-
-
-
+renderWarlock(warlocks);
 
 document.querySelector('.setup-similar').classList.remove('hidden');
