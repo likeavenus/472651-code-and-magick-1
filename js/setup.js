@@ -71,15 +71,15 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 
-var renderWarlock = function(warlocks) {
-  for (var i = 0;i < 4; i++) {
+var renderWarlock = function (warlock) {
+  for (var i = 0; i < 4; i++) {
     var warlockElement = similarWizardTemplate.cloneNode(true);
-    warlockElement.querySelector('.setup-similar-label').textContent = warlocks[i].name;
-    warlockElement.querySelector('.wizard-coat').style.fill = warlocks[i].coatColor;
-    warlockElement.querySelector('.wizard-eyes').style.fill = warlocks[i].eyesColor;
+    warlockElement.querySelector('.setup-similar-label').textContent = warlock[i].name;
+    warlockElement.querySelector('.wizard-coat').style.fill = warlock[i].coatColor;
+    warlockElement.querySelector('.wizard-eyes').style.fill = warlock[i].eyesColor;
     similarList.appendChild(warlockElement);
   }
-}
+};
 renderWarlock(warlocks);
 
 document.querySelector('.setup-similar').classList.remove('hidden');
