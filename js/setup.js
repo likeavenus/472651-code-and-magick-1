@@ -22,7 +22,7 @@ function getRandomAttribute(min, max) {
     rand = Math.floor(rand);
     return rand;
 };
-//попытка создать функцию, которая создает магов , что бы оптимизировать код ниже(нужно ли?)
+//попытка создать функцию, которая создает магов , что бы оптимизировать код ниже(нужно ли?)[ФУНКЦИЯ НЕ ГОТОВА]
 // var createWarlocks = function(warlocks) {
 //   for (var i = 0; i < WARLOCKS_NAMES.length; i++) {
 //     warlocks = WARLOCKS_NAMES[i];
