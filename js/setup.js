@@ -13,6 +13,7 @@ var WIZARD_NAME = [
   names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
   names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
   names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
+  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
   names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)]
 ];
 
