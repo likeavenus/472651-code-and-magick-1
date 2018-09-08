@@ -6,7 +6,7 @@ var surname = ['да Марья', 'Верон', 'Мирабелла', 'Валь�
 var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var WIZARD_NAME = [
+var WARLOCK_NAME = [
   names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
   names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
   names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
@@ -25,42 +25,42 @@ function getRandomAttribute(min, max) {
 
 var warlocks = [
   {
-    name: WIZARD_NAME[0],
+    name: WARLOCK_NAME[0],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   },
   {
-    name: WIZARD_NAME[1],
+    name: WARLOCK_NAME[1],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   },
   {
-    name: WIZARD_NAME[2],
+    name: WARLOCK_NAME[2],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   },
   {
-    name: WIZARD_NAME[3],
+    name: WARLOCK_NAME[3],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   },
   {
-    name: WIZARD_NAME[4],
+    name: WARLOCK_NAME[4],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   },
   {
-    name: WIZARD_NAME[5],
+    name: WARLOCK_NAME[5],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   },
   {
-    name: WIZARD_NAME[6],
+    name: WARLOCK_NAME[6],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   },
   {
-    name: WIZARD_NAME[7],
+    name: WARLOCK_NAME[7],
     coatColor: coatColor[getRandomAttribute(0, 5)],
     eyesColor: eyesColor[getRandomAttribute(0, 4)]
   }
