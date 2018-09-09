@@ -1,21 +1,18 @@
 'use strict';
-document.querySelector('.setup').classList.remove('hidden');
 
 var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var surname = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
+var surnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var WARLOCKS_NAMES = [
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)],
-  names[getRandomAttribute(0, 7)] + ' ' + surname[getRandomAttribute(0, 7)]
-];
+var WARLOCKS_NAMES = [];
+
+var renderName = function(quantity) {
+  for (var i = 0; i < quantity; i++) {
+    WARLOCKS_NAMES.push(names[getRandomAttribute(0, 7)] + ' ' + surnames[getRandomAttribute(0, 7)]);
+  }
+}
+renderName(9);
 
 function getRandomAttribute(min, max) {
   var rand = min + Math.random() * (max + 1 - min);
@@ -26,43 +23,43 @@ function getRandomAttribute(min, max) {
 var warlocks = [
   {
     name: WARLOCKS_NAMES[0],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   },
   {
     name: WARLOCKS_NAMES[1],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   },
   {
     name: WARLOCKS_NAMES[2],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   },
   {
     name: WARLOCKS_NAMES[3],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   },
   {
     name: WARLOCKS_NAMES[4],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   },
   {
     name: WARLOCKS_NAMES[5],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   },
   {
     name: WARLOCKS_NAMES[6],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   },
   {
     name: WARLOCKS_NAMES[7],
-    coatColor: coatColor[getRandomAttribute(0, 5)],
-    eyesColor: eyesColor[getRandomAttribute(0, 4)]
+    coatColor: coatColors[getRandomAttribute(0, 5)],
+    eyesColor: eyesColors[getRandomAttribute(0, 4)]
   }
 ];
 
@@ -71,8 +68,8 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 
-var renderWarlock = function (warlock) {
-  for (var i = 0; i < 4; i++) {
+var renderWarlock = function (warlock, quantity) {
+  for (var i = 0; i < quantity; i++) {
     var warlockElement = similarWizardTemplate.cloneNode(true);
     warlockElement.querySelector('.setup-similar-label').textContent = warlock[i].name;
     warlockElement.querySelector('.wizard-coat').style.fill = warlock[i].coatColor;
@@ -80,6 +77,7 @@ var renderWarlock = function (warlock) {
     similarList.appendChild(warlockElement);
   }
 };
-renderWarlock(warlocks);
+renderWarlock(warlocks, 4);
 
+document.querySelector('.setup').classList.remove('hidden');
 document.querySelector('.setup-similar').classList.remove('hidden');
