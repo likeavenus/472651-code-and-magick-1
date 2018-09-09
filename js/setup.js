@@ -7,11 +7,11 @@ var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var WARLOCKS_NAMES = [];
 
-var renderName = function(quantity) {
+var renderName = function (quantity) {
   for (var i = 0; i < quantity; i++) {
     WARLOCKS_NAMES.push(names[getRandomAttribute(0, 7)] + ' ' + surnames[getRandomAttribute(0, 7)]);
   }
-}
+};
 renderName(9);
 
 function getRandomAttribute(min, max) {
