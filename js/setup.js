@@ -74,9 +74,14 @@ var renderWarlock = function (warlock, quantity) {
     warlockElement.querySelector('.setup-similar-label').textContent = warlock[i].name;
     warlockElement.querySelector('.wizard-coat').style.fill = warlock[i].coatColor;
     warlockElement.querySelector('.wizard-eyes').style.fill = warlock[i].eyesColor;
-    similarList.appendChild(warlockElement);
+    return warlockElement;
   }
 };
+var fragment = document.createDocumentFragment();
+for (var i = 0; i < warlocks.length; i ++) {
+  fragment.appendChild(renderWarlock(warlocks[i]));
+}
+similarList.appendChild(fragment);
 renderWarlock(warlocks, 4);
 
 document.querySelector('.setup').classList.remove('hidden');
