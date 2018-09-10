@@ -15,7 +15,7 @@ var WARLOCKS_NAMES = [];
 
 var renderName = function (quantity) {
   for (var i = 0; i < quantity; i++) {
-    WARLOCKS_NAMES[i] = names[getRandomAttribute(0, 7)] + ' ' + surnames[getRandomAttribute(0, 7)];;
+    WARLOCKS_NAMES[i] = names[getRandomAttribute(0, 7)] + ' ' + surnames[getRandomAttribute(0, 7)];
   }
 };
 renderName(5);
@@ -61,7 +61,6 @@ for (var i = 0; i < warlocks.length; i ++) {
   fragment.appendChild(renderWarlock(warlocks[i]));
 }
 similarList.appendChild(fragment);
-
 
 document.querySelector('.setup').classList.remove('hidden');
 document.querySelector('.setup-similar').classList.remove('hidden');
