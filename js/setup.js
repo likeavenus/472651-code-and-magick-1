@@ -5,11 +5,15 @@ var surnames = ['да Марья', 'Верон', 'Мирабелла', 'Валь
 var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var WARLOCKS_NAMES = [];
+var WARLOCKS_NAMES;
+
+var renderArrNames = function() {
+   WARLOCKS_NAMES = [names[getRandomAttribute(0, 7)] + ' ' + surnames[getRandomAttribute(0, 7)]];
+}
 
 var renderName = function (quantity) {
   for (var i = 0; i < quantity; i++) {
-    WARLOCKS_NAMES.push(names[getRandomAttribute(0, 7)] + ' ' + surnames[getRandomAttribute(0, 7)]);
+    renderArrNames();
   }
 };
 renderName(9);
