@@ -11,7 +11,7 @@ function getRandomAttribute(min, max) {
   return rand;
 }
 
-var renderName = function() {
+var renderName = function () {
   var WARLOCKS_NAMES = [];
   for (var i = 0; i < names.length; i++) {
     WARLOCKS_NAMES = names[getRandomAttribute(0, names.length - 1)] + ' ' + surnames[getRandomAttribute(0, surnames.length - 1)];
@@ -23,12 +23,12 @@ var warlocks = [];
 var renderObjects = function (quantity) {
   for (var i = 0; i < quantity; i++) {
     warlocks.push(
-      {
-        name: renderName(),
-        coatColor: coatColors[getRandomAttribute(0, coatColors.length - 1)],
-        eyesColor: eyesColors[getRandomAttribute(0, eyesColors.length - 1)]
-      }
-    )
+        {
+          name: renderName(),
+          coatColor: coatColors[getRandomAttribute(0, coatColors.length - 1)],
+          eyesColor: eyesColors[getRandomAttribute(0, eyesColors.length - 1)]
+        }
+    );
   }
   return warlocks;
 };
@@ -38,15 +38,15 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .querySelector('.setup-similar-item');
 
 var renderWarlock = function (warlock) {
-    var warlockElement = similarWizardTemplate.cloneNode(true);
-    warlockElement.querySelector('.setup-similar-label').textContent = warlock.name;
-    warlockElement.querySelector('.wizard-coat').style.fill = warlock.coatColor;
-    warlockElement.querySelector('.wizard-eyes').style.fill = warlock.eyesColor;
-    return warlockElement;
+  var warlockElement = similarWizardTemplate.cloneNode(true);
+  warlockElement.querySelector('.setup-similar-label').textContent = warlock.name;
+  warlockElement.querySelector('.wizard-coat').style.fill = warlock.coatColor;
+  warlockElement.querySelector('.wizard-eyes').style.fill = warlock.eyesColor;
+  return warlockElement;
 };
 renderWarlock(warlocks);
 var fragment = document.createDocumentFragment();
-for (var i = 0; i < WARLOCK_OBJS; i ++) {
+for (var i = 0; i < WARLOCK_OBJS; i++) {
   renderObjects(WARLOCK_OBJS);
 
   fragment.appendChild(renderWarlock(warlocks[i]));
