@@ -44,11 +44,10 @@ var renderWarlock = function (warlock) {
   warlockElement.querySelector('.wizard-eyes').style.fill = warlock.eyesColor;
   return warlockElement;
 };
-renderWarlock(warlocks);
+
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < WARLOCK_OBJS; i++) {
   renderObjects(WARLOCK_OBJS);
-
   fragment.appendChild(renderWarlock(warlocks[i]));
 }
 similarList.appendChild(fragment);
