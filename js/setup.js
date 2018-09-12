@@ -13,9 +13,7 @@ function getRandomAttribute(min, max) {
 
 var renderName = function () {
   var WARLOCKS_NAMES = [];
-  for (var i = 0; i < names.length; i++) {
-    WARLOCKS_NAMES = names[getRandomAttribute(0, names.length - 1)] + ' ' + surnames[getRandomAttribute(0, surnames.length - 1)];
-  }
+    WARLOCKS_NAMES.push(names[getRandomAttribute(0, names.length - 1)] + ' ' + surnames[getRandomAttribute(0, surnames.length - 1)]);
   return WARLOCKS_NAMES;
 };
 
