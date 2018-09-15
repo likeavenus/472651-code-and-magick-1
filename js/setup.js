@@ -13,7 +13,9 @@ function getRandomAttribute(min, max) {
 
 var renderName = function () {
   var WARLOCKS_NAMES = [];
-    WARLOCKS_NAMES.push(names[getRandomAttribute(0, names.length - 1)] + ' ' + surnames[getRandomAttribute(0, surnames.length - 1)]);
+  for (var i = 0; i < names.length; i++) {
+    WARLOCKS_NAMES = names[getRandomAttribute(0, names.length - 1)] + ' ' + surnames[getRandomAttribute(0, surnames.length - 1)];
+  }
   return WARLOCKS_NAMES;
 };
 
@@ -42,10 +44,11 @@ var renderWarlock = function (warlock) {
   warlockElement.querySelector('.wizard-eyes').style.fill = warlock.eyesColor;
   return warlockElement;
 };
-
+renderWarlock(warlocks);
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < WARLOCK_OBJS; i++) {
   renderObjects(WARLOCK_OBJS);
+
   fragment.appendChild(renderWarlock(warlocks[i]));
 }
 similarList.appendChild(fragment);
