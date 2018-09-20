@@ -94,15 +94,14 @@ setupClose.addEventListener('click', function() {
 
 setupClose.addEventListener('keydown', function(evt) {
   if (evt.keyCode === ESC_KEYCODE) {
-	closePopup();
+	  closePopup();
   }
 });
 
-userName.addEventListener('focus', function (evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    evt.preventDefault();
-  }
-});
+userName.onfocus = function () {
+  setupClose.removeEventListener('keydown', onPopupEscPress);
+
+};
 
 var warlocksCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var warlocksEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
