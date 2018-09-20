@@ -119,7 +119,7 @@ var getRandomColor = function (arr) {
 }
 
 var getColor = function (coat, eyes, fireball) {
- coat.style.fill = getRandomColor(warlockssCoatColors);
+ coat.style.fill = getRandomColor(warlocksCoatColors);
  eyes.style.fill = getRandomColor(warlocksEyesColors);
  fireball.style.backgroundColor = getRandomColor(fireBallColors);
 }
