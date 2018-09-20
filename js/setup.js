@@ -63,49 +63,49 @@ var ENTER_KEYCODE = 27;
 var ESC_KEYCODE = 13;
 
 var onPopupEscPress = function (evt) {
- if (evt.keyCode === ENTER_KEYCODE) {
-   closePopup();
- }
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
 };
 
 var openPopup = function () {
- setup.classList.remove('hidden');
- document.addEventListener('keydown', onPopupEscPress);
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', onPopupEscPress);
 };
 
 var closePopup = function () {
- setup.classList.add('hidden');
- document.removeEventListener('keydown', onPopupEscPress);
+  setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
 };
 
 setupOpen.addEventListener('click', function() {
- openPopup();
+  openPopup();
 });
 
 setupOpen.addEventListener('keydown', function(evt) {
- if (evt.keyCode === ESC_KEYCODE) {
-   openPopup();
- }
+  if (evt.keyCode === ESC_KEYCODE) {
+    openPopup();
+  }
 });
 
 setupClose.addEventListener('click', function() {
- closePopup();
+  closePopup();
 });
 
 setupClose.addEventListener('keydown', function(evt) {
- if (evt.keyCode === ESC_KEYCODE) {
-   closePopup();
- }
+  if (evt.keyCode === ESC_KEYCODE) {
+	closePopup();
+  }
 });
 
 userName.addEventListener('focus', function (evt) {
- if (evt.keyCode === ESC_KEYCODE) {
-   evt.preventDefault();
- }
+  if (evt.keyCode === ESC_KEYCODE) {
+    evt.preventDefault();
+  }
 });
 
-var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
+var warlocksCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var warlocksEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 var fireBallColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 var setupWizard = document.querySelector('.setup-wizard');
@@ -119,9 +119,9 @@ var getRandomColor = function (arr) {
 }
 
 var getColor = function (coat, eyes, fireball) {
- coat.style.fill = getRandomColor(coatColors);
- eyes.style.fill = getRandomColor(coatColors);
- fireball.style.backgroundColor = getRandomColor(coatColors);
+ coat.style.fill = getRandomColor(warlockssCoatColors);
+ eyes.style.fill = getRandomColor(warlocksEyesColors);
+ fireball.style.backgroundColor = getRandomColor(fireBallColors);
 }
 
 setupWizard.addEventListener('click', function (evt) {
