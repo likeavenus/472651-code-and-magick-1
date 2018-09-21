@@ -59,11 +59,13 @@ var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var userName = document.querySelector('.setup-user-name');
-var ENTER_KEYCODE = 27;
-var ESC_KEYCODE = 13;
+var ENTER_KEYCODE = 13;
+var ESC_KEYCODE = 27;
+
+setup.classList.add('hidden');
 
 var onPopupEscPress = function (evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
+  if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
 };
@@ -83,7 +85,7 @@ setupOpen.addEventListener('click', function() {
 });
 
 setupOpen.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
+  if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
@@ -93,15 +95,19 @@ setupClose.addEventListener('click', function() {
 });
 
 setupClose.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
+  if (evt.keyCode === ENTER_KEYCODE) {
 	  closePopup();
   }
 });
 
-userName.onfocus = function () {
-  setupClose.removeEventListener('keydown', onPopupEscPress);
+userName.addEventListener('keydown', function(evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    openPopup.removeEventListener('keydown', onPopupEscPress);
+  }
+}) 
+  
 
-};
+
 
 var warlocksCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var warlocksEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
