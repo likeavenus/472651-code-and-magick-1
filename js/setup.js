@@ -108,9 +108,6 @@ userName.onblur = function () {
   document.addEventListener('keydown', onPopupEscPress);
 }
   
-
-
-
 var warlocksCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var warlocksEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 var fireBallColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
@@ -125,12 +122,26 @@ var getRandomColor = function (arr) {
  return arr[rand];
 }
 
-var getColor = function (coat, eyes, fireball) {
+var getCoatColor = function (coat) {
  coat.style.fill = getRandomColor(warlocksCoatColors);
- eyes.style.fill = getRandomColor(warlocksEyesColors);
- fireball.style.backgroundColor = getRandomColor(fireBallColors);
 }
 
-setupWizard.addEventListener('click', function (evt) {
- getColor(wizardCoat, wizardEyes, fireBallWrap);
+var getEyesColor = function (eyes) {
+  eyes.style.fill = getRandomColor(warlocksEyesColors);
+}
+
+var getFireBallColor = function (fireball) {
+  fireball.style.backgroundColor = getRandomColor(fireBallColors);
+}
+
+wizardCoat.addEventListener('click', function () {
+  getCoatColor(wizardCoat);
+})
+
+setupWizard.addEventListener('click', function() {
+  getEyesColor(wizardEyes);
+})
+
+fireBallWrap.addEventListener('click', function () {
+  getFireBallColor(fireBallWrap);
 })
