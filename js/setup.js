@@ -100,11 +100,13 @@ setupClose.addEventListener('keydown', function(evt) {
   }
 });
 
-userName.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    openPopup.removeEventListener('keydown', onPopupEscPress);
-  }
-}) 
+userName.onfocus = function () {
+  document.removeEventListener('keydown', onPopupEscPress);
+}
+
+userName.onblur = function () {
+  document.addEventListener('keydown', onPopupEscPress);
+}
   
 
 
