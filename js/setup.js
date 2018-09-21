@@ -122,26 +122,26 @@ var getRandomColor = function (arr) {
  return arr[rand];
 }
 
-var getCoatColor = function (coat) {
- coat.style.fill = getRandomColor(warlocksCoatColors);
+var getColor = function (item, fillMethod, currentArrayColors) {
+  return item.style.fillMethod = getRandomColor(currentArrayColors);
 }
 
-var getEyesColor = function (eyes) {
-  eyes.style.fill = getRandomColor(warlocksEyesColors);
-}
+// var getEyesColor = function (eyes) {
+//   eyes.style.fill = getRandomColor(warlocksEyesColors);
+// }
 
-var getFireBallColor = function (fireball) {
-  fireball.style.backgroundColor = getRandomColor(fireBallColors);
-}
+// var getFireBallColor = function (fireball) {
+//   fireball.style.backgroundColor = getRandomColor(fireBallColors);
+// }
 
 wizardCoat.addEventListener('click', function () {
-  getCoatColor(wizardCoat);
+  getColor(wizardCoat, fill, warlocksCoatColors);
 })
 
 setupWizard.addEventListener('click', function() {
-  getEyesColor(wizardEyes);
+  getColor(wizardEyes, fill, warlocksEyesColors);
 })
 
 fireBallWrap.addEventListener('click', function () {
-  getFireBallColor(fireBallWrap);
+  getColor(fireBallWrap, backgroundColor, fireBallColors);
 })
