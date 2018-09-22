@@ -107,7 +107,7 @@ userName.onfocus = function () {
 userName.onblur = function () {
   document.addEventListener('keydown', onPopupEscPress);
 }
-  
+
 var warlocksCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var warlocksEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 var fireBallColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
@@ -116,32 +116,40 @@ var setupWizard = document.querySelector('.setup-wizard');
 var wizardCoat = document.querySelector('.wizard-coat');
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireBallWrap = document.querySelector('.setup-fireball-wrap');
+var inputCoat = document.querySelector('input[name="coat-color"]');
+var inputEyes = document.querySelector('input[name="eyes-color"]');
+var inputFireball = document.querySelector('input[name="fireball-color"]');
 
 var getRandomColor = function (arr) {
- var rand = Math.floor(Math.random() * arr.length);
- return arr[rand];
+  var rand = Math.floor(Math.random() * arr.length);
+  return arr[rand];
 }
 
-var getColor = function (item, fillMethod, currentArrayColors) {
-  return item.style.fillMethod = getRandomColor(currentArrayColors);
+var getColor = function (item, input, currentArrayColors) {
+  switch(item) {
+    case fireBallWrap:
+      item.style.backgroundColor = getRandomColor(currentArrayColors);
+      input.value = item.style.backgroundColor;
+      break;
+    case wizardCoat:
+      item.style.fill = getRandomColor(currentArrayColors);
+      input.value = item.style.fill;
+      break;
+    case wizardEyes:
+      item.style.fill = getRandomColor(currentArrayColors);
+      input.value = item.style.fill;
+      break;
+  }
 }
-
-// var getEyesColor = function (eyes) {
-//   eyes.style.fill = getRandomColor(warlocksEyesColors);
-// }
-
-// var getFireBallColor = function (fireball) {
-//   fireball.style.backgroundColor = getRandomColor(fireBallColors);
-// }
 
 wizardCoat.addEventListener('click', function () {
-  getColor(wizardCoat, fill, warlocksCoatColors);
+  getColor(wizardCoat, inputCoat, warlocksCoatColors);
 })
 
-setupWizard.addEventListener('click', function() {
-  getColor(wizardEyes, fill, warlocksEyesColors);
+wizardEyes.addEventListener('click', function() {
+  getColor(wizardEyes, inputEyes, warlocksEyesColors);
 })
 
 fireBallWrap.addEventListener('click', function () {
-  getColor(fireBallWrap, backgroundColor, fireBallColors);
+  getColor(fireBallWrap, inputFireball, fireBallColors);
 })
