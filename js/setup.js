@@ -80,39 +80,38 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function() {
+setupOpen.addEventListener ('click', function() {
   openPopup();
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener ('keydown', function(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener ('click', function() {
   closePopup();
 });
 
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener ('keydown', function(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
-	  closePopup();
+    closePopup();
   }
 });
 
 userName.onfocus = function () {
   document.removeEventListener('keydown', onPopupEscPress);
-}
+};
 
 userName.onblur = function () {
   document.addEventListener('keydown', onPopupEscPress);
-}
+};
 
 var warlocksCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var warlocksEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 var fireBallColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-var setupWizard = document.querySelector('.setup-wizard');
 var wizardCoat = document.querySelector('.wizard-coat');
 var wizardEyes = document.querySelector('.wizard-eyes');
 var fireBallWrap = document.querySelector('.setup-fireball-wrap');
@@ -123,10 +122,10 @@ var inputFireball = document.querySelector('input[name="fireball-color"]');
 var getRandomColor = function (arr) {
   var rand = Math.floor(Math.random() * arr.length);
   return arr[rand];
-}
+};
 
 var getColor = function (item, input, currentArrayColors) {
-  switch(item) {
+  switch (item) {
     case fireBallWrap:
       item.style.backgroundColor = getRandomColor(currentArrayColors);
       input.value = item.style.backgroundColor;
@@ -140,7 +139,7 @@ var getColor = function (item, input, currentArrayColors) {
       input.value = item.style.fill;
       break;
   }
-}
+};
 
 wizardCoat.addEventListener('click', function () {
   getColor(wizardCoat, inputCoat, warlocksCoatColors);
@@ -152,4 +151,4 @@ wizardEyes.addEventListener('click', function() {
 
 fireBallWrap.addEventListener('click', function () {
   getColor(fireBallWrap, inputFireball, fireBallColors);
-})
+});
