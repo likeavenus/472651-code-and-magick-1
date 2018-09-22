@@ -125,6 +125,7 @@ var getRandomColor = function (arr) {
 };
 
 var getColor = function (item, input, currentArrayColors) {
+<<<<<<< HEAD
   var randomColor = getRandomColor(currentArrayColors);
   switch (item) {
     case fireBallWrap:
@@ -137,6 +138,19 @@ var getColor = function (item, input, currentArrayColors) {
       break;
     case wizardEyes:
       item.style.fill = randomColor;
+=======
+  switch (item.getAttribute('class')) {
+    case 'setup-fireball-wrap':
+      item.style.backgroundColor = getRandomColor(currentArrayColors);
+      input.value = item.style.backgroundColor;
+      break;
+    case 'wizard-coat':
+      item.style.fill = getRandomColor(currentArrayColors);
+      input.value = item.style.fill;
+      break;
+    case 'wizard-eyes':
+      item.style.fill = getRandomColor(currentArrayColors);
+>>>>>>> 1cb28c5be8dd081ebb269e3c40808cf6ebb369a7
       input.value = item.style.fill;
       break;
   }
