@@ -153,4 +153,3 @@ wizardEyes.addEventListener('click', function () {
 fireBallWrap.addEventListener('click', function () {
   getColor(fireBallWrap, inputFireball, fireBallColors);
 });
-123

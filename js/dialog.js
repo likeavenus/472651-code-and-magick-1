@@ -42,7 +42,7 @@
       if (dragged) {
         var onClickPreventDefault = function (e) {
           e.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault)
+          dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
       }
