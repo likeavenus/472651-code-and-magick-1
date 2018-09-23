@@ -129,15 +129,15 @@ var getColor = function (item, input, currentArrayColors) {
   switch (item.getAttribute('class')) {
     case 'setup-fireball-wrap':
       item.style.backgroundColor = randomColor;
-      input.value = item.style.backgroundColor;
+      input.value = randomColor;
       break;
     case 'wizard-coat':
       item.style.fill = randomColor;
-      input.value = item.style.fill;
+      input.value = randomColor;
       break;
     case 'wizard-eyes':
       item.style.fill = randomColor;
-      input.value = item.style.fill;
+      input.value = randomColor;
       break;
   }
 };
