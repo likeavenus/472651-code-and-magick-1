@@ -11,12 +11,12 @@ function getRandomAttribute(min, max) {
   return rand;
 }
 
-var renderName = function () {
+var renderName = function (index) {
   var WARLOCKS_NAMES = [];
   for (var i = 0; i < names.length; i++) {
-    WARLOCKS_NAMES = names[getRandomAttribute(0, names.length - 1)] + ' ' + surnames[getRandomAttribute(0, surnames.length - 1)];
+    WARLOCKS_NAMES.push(names[getRandomAttribute(0, names.length - 1)] + ' ' + surnames[getRandomAttribute(0, surnames.length - 1)]);
   }
-  return WARLOCKS_NAMES;
+  return WARLOCKS_NAMES[index];
 };
 
 var warlocks = [];
@@ -24,7 +24,7 @@ var renderObjects = function (quantity) {
   for (var i = 0; i < quantity; i++) {
     warlocks.push(
         {
-          name: renderName(),
+          name: renderName(i),
           coatColor: coatColors[getRandomAttribute(0, coatColors.length - 1)],
           eyesColor: eyesColors[getRandomAttribute(0, eyesColors.length - 1)]
         }
@@ -54,3 +54,102 @@ similarList.appendChild(fragment);
 
 document.querySelector('.setup').classList.remove('hidden');
 document.querySelector('.setup-similar').classList.remove('hidden');
+
+var setup = document.querySelector('.setup');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = document.querySelector('.setup-close');
+var userName = document.querySelector('.setup-user-name');
+var ENTER_KEYCODE = 13;
+var ESC_KEYCODE = 27;
+
+setup.classList.add('hidden');
+
+var onPopupEscPress = function (evt) {
+  if (evt.keyCode === ESC_KEYCODE) {
+    closePopup();
+  }
+};
+
+var openPopup = function () {
+  setup.classList.remove('hidden');
+  document.addEventListener('keydown', onPopupEscPress);
+};
+
+var closePopup = function () {
+  setup.classList.add('hidden');
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+
+setupOpen.addEventListener('click', function () {
+  openPopup();
+});
+
+setupOpen.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    openPopup();
+  }
+});
+
+setupClose.addEventListener('click', function () {
+  closePopup();
+});
+
+setupClose.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_KEYCODE) {
+    closePopup();
+  }
+});
+
+userName.onfocus = function () {
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+
+userName.onblur = function () {
+  document.addEventListener('keydown', onPopupEscPress);
+};
+
+var warlocksCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var warlocksEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
+var fireBallColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
+var wizardCoat = document.querySelector('.wizard-coat');
+var wizardEyes = document.querySelector('.wizard-eyes');
+var fireBallWrap = document.querySelector('.setup-fireball-wrap');
+var inputCoat = document.querySelector('input[name="coat-color"]');
+var inputEyes = document.querySelector('input[name="eyes-color"]');
+var inputFireball = document.querySelector('input[name="fireball-color"]');
+
+var getRandomColor = function (arr) {
+  var rand = Math.floor(Math.random() * arr.length);
+  return arr[rand];
+};
+
+var getColor = function (item, input, currentArrayColors) {
+  var randomColor = getRandomColor(currentArrayColors);
+  switch (item.getAttribute('class')) {
+    case 'setup-fireball-wrap':
+      item.style.backgroundColor = randomColor;
+      input.value = randomColor;
+      break;
+    case 'wizard-coat':
+      item.style.fill = randomColor;
+      input.value = randomColor;
+      break;
+    case 'wizard-eyes':
+      item.style.fill = randomColor;
+      input.value = randomColor;
+      break;
+  }
+};
+
+wizardCoat.addEventListener('click', function () {
+  getColor(wizardCoat, inputCoat, warlocksCoatColors);
+});
+
+wizardEyes.addEventListener('click', function () {
+  getColor(wizardEyes, inputEyes, warlocksEyesColors);
+});
+
+fireBallWrap.addEventListener('click', function () {
+  getColor(fireBallWrap, inputFireball, fireBallColors);
+});
