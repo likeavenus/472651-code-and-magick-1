@@ -61,6 +61,7 @@ var setupClose = document.querySelector('.setup-close');
 var userName = document.querySelector('.setup-user-name');
 var ENTER_KEYCODE = 13;
 var ESC_KEYCODE = 27;
+var popupOpened = true;
 
 setup.classList.add('hidden');
 
@@ -73,11 +74,13 @@ var onPopupEscPress = function (evt) {
 var openPopup = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
+  popupOpened = true;
 };
 
 var closePopup = function () {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
+  popupOpened = false;
 };
 
 setupOpen.addEventListener('click', function () {
@@ -153,3 +156,4 @@ wizardEyes.addEventListener('click', function () {
 fireBallWrap.addEventListener('click', function () {
   getColor(fireBallWrap, inputFireball, fireBallColors);
 });
+

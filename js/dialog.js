@@ -1,4 +1,5 @@
 'use strict';
+var popupOpened;
 (function () {
 
   var setupDialogElement = document.querySelector('.setup');
@@ -13,6 +14,7 @@
     };
 
     var dragged = false;
+
 
     var onMouseMove = function (moveEvt) {
       moveEvt.preventDefault();
@@ -51,5 +53,8 @@
 
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
+    if (popupOpened) {
+      dialogHandler.removeEventListener('mousedown', evt);
+    }
   });
 })();
